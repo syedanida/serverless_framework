@@ -1,0 +1,32 @@
+service: doge-meme-images
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - logs:CreateLogGroup
+        - logs:CreateLogStream
+        - logs:PutLogEvents
+        - s3:PutObject
+      Resource: arn:aws:s3:::doge-meme-images/* # Allows access to all objects in the S3 bucket
+
+functions:
+  create:
+    handler: doge.create
+    memorySize: 128
+    timeout: 30
+    events:
+      - http:
+          path: doge/create
+          method: get
+
+package:
+  include:
+    - doge.jpg
+    - doge1.jpg
+    - doge2.jpg
+    - doge3.jpg
+    - doge4.jpg

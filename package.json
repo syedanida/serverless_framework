@@ -1,0 +1,16 @@
+{
+  "name": "lambda-workshop",
+  "version": "1.0.0",
+  "description": "Preparation for a Doge meme generator using AWS Lambda",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.4.13",
+    "jimp": "^0.16.1"
+  }
+}
